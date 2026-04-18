@@ -336,6 +336,8 @@ body {
     background: #1992d4;
     color: black;
     text-align: center;
-    padding: 12px;
-    font-size: 0.8rem;
+    padding: 14px;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    font-weight: 500;
 }
