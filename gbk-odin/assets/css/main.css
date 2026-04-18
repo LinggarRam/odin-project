@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serf;
+    background: #1a1a2e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTAINER MAIN  */
+.container {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #e94560;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.score-box {
+    background: #16213e;
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.score-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e94560;
+}
+
+.round-info {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.btn-choice {
+    font-size: 3rem;
+    background: #16213e;
+    border: 2px solid #e94560;
+    border-radius: 15px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-choice:hover {
+    transform: scale(1.1);
+    background: #e94560;
+}
+
+.result-box {
+    margin: 20px auto;
+    padding: 15px 30px;
+    background: #16213e;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    min-height: 60px;
+    max-width: 400px;
+}
+
+.result-box.menang {
+    border-left: 4px solid #4ecca3;
+}
+
+.result-box.kalah {
+    border-left: 4px solid #e94560;
+}
+
+.result-box.seri {
+    border-left: 4px solid #f5a623;
+}
+
+.final-result {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.btn-reset {
+    display: none;
+    margin: 15px auto;
+    padding: 12px 30px;
+    font-size: 1rem;
+    background: #e94560;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-reset:hover {
+    background: #c73652;
+}

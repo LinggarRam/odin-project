@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kertas Batu Gunting</title>
+        <link rel="stylesheet" href="./assets/css/main.css">
+    </head>
+    <body>
+        <!-- CONTAINER MAIN  -->
+        <div class="container">
+            <h1>✊ Kertas Batu Gunting ✂️</h1>
+
+            <!-- SCORE BOARD -->
+            <div class="scoreboard">
+                <div class="score-box">
+                    Kamu: <span id="human-score">0</span>
+                </div>
+                <div class="score-box">
+                    Computer: <span id="computer-score">0</span>
+                </div>
+            </div>
+
+            <!-- ROUND INFO -->
+            <p class="round-info" id="round-info">Ronde 1 dari 5</p>
+
+            <!-- CHOICE -->
+            <div class="choices">
+                <button class="btn-choice" onclick="handleChoice('batu')">
+                    ✊
+                </button>
+                <button class="btn-choice" onclick="handleChoice('kertas')">
+                    ✋
+                </button>
+                <button class="btn-choice" onclick="handleChoice('gunting')">
+                    ✌️
+                </button>
+            </div>
+
+            <!-- RESULT -->
+            <div class="result-box" id="result-box">Pilih salah satu!</div>
+            <div class="final-result" id="final-result"></div>
+
+            <!-- RESET GAME -->
+            <button class="btn-reset" id="btn-reset" onclick="resetGame()">
+                🔄 Main Lagi
+            </button>
+        </div>
+
+        <!-- SCRIPT JS-->
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>
