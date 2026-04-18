@@ -1,1 +1,1 @@
-# KUmpulan hasil pembelajaran dari odin project
+# Kumpulan hasil pembelajaran dari odin project
