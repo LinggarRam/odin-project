@@ -90,11 +90,49 @@ const GameController = (() => {
     return { playTurn, resetGame, getCurrentPlayer, getIsGameOver };
 })();
 
-GameController.resetGame("Linggar", "Computer");
-console.log("=== Test Game ===");
-console.log(GameController.playTurn(0)); // X di slot 0
-console.log(GameController.playTurn(3)); // O di slot 3
-console.log(GameController.playTurn(1)); // X di slot 1
-console.log(GameController.playTurn(4)); // O di slot 4
-console.log(GameController.playTurn(2)); // X di slot 2 → X MENANG!
-console.log("Board:", Gameboard.getBoard());
+const DisplayController = (() => {
+    const cells = document.querySelectorAll(".cell");
+    const statusText = document.getElementById("status-text");
+
+    const renderBoard = () => {
+        const board = Gameboard.getBoard();
+        cells.forEach((cell, index) => {
+            cell.textContent = board[index];
+            cell.className = "cell";
+            if (board[index] === "X") cell.classList.add("x", "taken");
+            if (board[index] === "O") cell.classList.add("o", "taken");
+        });
+    };
+
+    const updateStatus = (text) => {
+        statusText.textContent = text;
+    };
+
+    const initBoard = () => {
+        cells.forEach((cell) => {
+            cell.addEventListener("click", () => {
+                const index = parseInt(cell.dataset.index);
+                const result = GameController.playTurn(index);
+
+                renderBoard();
+
+                if (result.status === "win") {
+                    updateStatus(`🏆 ${result.player.name} Wins!`);
+                    statusText.style.color = result.player.marker === "X" ? "#e94560" : "#4ecca3";
+                } else if (result.status === "tie") {
+                    updateStatus("🤝 It's a Tie");
+                    statusText.style.color = "#f0b429";
+                } else if (result.status === "continue") {
+                    updateStatus(`${result.player.name}'s Turn (${result.player.marker})`);
+                    statusText.style.color = result.player.marker === "X" ? "#e94560" : "#4ecca3";
+                }
+            });
+        });
+    };
+
+    return { renderBoard, updateStatus, initBoard };
+})();
+
+GameController.resetGame("Player 1", "Player 2");
+DisplayController.initBoard();
+DisplayController.updateStatus("Player 1's Turn (X)");

@@ -9,4 +9,102 @@ body {
     background: #0d0d1a;
     color: white;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.app-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, #e94560, #4ecca3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.status-bar {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #4ecca3;
+    min-width: 280px;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+}
+
+.cell {
+    background: #1a1a2e;
+    border: 2px solid #2a2a4a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbtron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.cell:hover:not(.taken) {
+    background: #252540;
+    border-color: #4ecca3;
+    transform: scale(1.03);
+}
+
+.cell.taken {
+    cursor: not-allowed;
+}
+
+.cell.x {
+    color: #e94560;
+    border-color: #e94560;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+.cell.o {
+    color: #4ecca3;
+    border-color: #4ecca3;
+    text-shadow: 0 0 20px rgba(76, 204, 163, 0.5);
+}
+
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    border-top: 1px solid #1a1a2e;
 }
