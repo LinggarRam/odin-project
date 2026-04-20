@@ -21,6 +21,11 @@ function displayBooks() {
   const grid = document.getElementById("books-grid");
   grid.innerHTML = "";
 
+  if (myLibrary.length === 0) {
+    grid.innerHTML = `<p class="empty-state">Belum ada buku. Tambahkan buku pertama anda!</p>`;
+    return;
+  }
+
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
     card.classList.add("book-card");
@@ -64,10 +69,6 @@ function displayBooks() {
     });
   });
 }
-
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("Harry Potter", "J.K. Rowling", 500, false);
-addBookToLibrary("Clean Code", "Robert C. Martin", 464, true);
 
 displayBooks();
 
