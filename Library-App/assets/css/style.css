@@ -5,6 +5,78 @@
 }
 
 body {
-    background: #1e1e2e;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #f0f0f0;
+}
+
+.header {
+    background: #2c3e50;
     color: white;
+    padding: 20px 40px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+main {
+    padding: 30px 40px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-card h3 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.book-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.read-status {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.read {
+    color: #27ae60;
+}
+
+.unread {
+    color: #e74c3c;
+}
+
+.footer {
+    background: #2c3e50;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 15px auto;
+    margin: auto;
+}
+
+.footer p {
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
