@@ -40,3 +40,32 @@ addBookToLibrary("Harry Potter", "J.K. Rowling", 500, false);
 addBookToLibrary("Clean Code", "Robert C. Martin", 464, true);
 
 displayBooks();
+
+const dialog = document.getElementById("book-dialog");
+const btnNewBook = document.getElementById("btn-new-book");
+const btnCancel = document.getElementById("btn-cancel");
+const bookForm = document.getElementById("book-form");
+
+btnNewBook.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+btnCancel.addEventListener("click", () => {
+  dialog.class();
+  bookForm.reset();
+});
+
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
+
+  addBookToLibrary(title, author, pages, read);
+  displayBooks();
+
+  dialog.close();
+  bookForm.reset();
+});
