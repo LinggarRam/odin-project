@@ -8,6 +8,10 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
@@ -27,9 +31,12 @@ function displayBooks() {
         <p><strong>Author:</strong> ${book.author}</p>
         <p><strong>Pages:</strong> ${book.pages}</p>
         <p class="read-status ${book.read ? "read" : "unread"}">
-            ${book.read ? "Sudah baca" : "Belum Baca"}
+            ${book.read ? "Siyap dibaca" : "Tidak Siyap dibaca"}
         </p>
         <div class="card-buttons">
+          <button class="btn-toggle" data-id="${book.id}">
+            ${book.read ? "Belum dibaca" : "Sudah dibaca"}
+          </button>
           <button class="btn-remove" data-id="${book.id}">Remove</button>
         </div>
         `;
@@ -37,11 +44,21 @@ function displayBooks() {
     grid.appendChild(card);
   });
 
+  document.querySelectorAll(".btn-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const book = myLibrary.find((b) => b.id === id);
+
+      book.toggleRead();
+      displayBooks();
+    });
+  });
+
   document.querySelectorAll(".btn-remove").forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.id;
-
       const index = myLibrary.findIndex((book) => book.id === id);
+
       myLibrary.splice(index, 1);
       displayBooks();
     });
