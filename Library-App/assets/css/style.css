@@ -173,6 +173,28 @@ dialog h2 {
     background: #ccc;
 }
 
+.card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-remove {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex: 1;
+}
+
+.btn-remove:hover {
+    background: #c0392b;
+}
+
 .footer {
     background: #2c3e50;
     display: flex;

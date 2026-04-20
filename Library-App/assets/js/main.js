@@ -27,11 +27,24 @@ function displayBooks() {
         <p><strong>Author:</strong> ${book.author}</p>
         <p><strong>Pages:</strong> ${book.pages}</p>
         <p class="read-status ${book.read ? "read" : "unread"}">
-            ${book.read ? "Already Read" : "Not Read Yet"}
+            ${book.read ? "Sudah baca" : "Belum Baca"}
         </p>
+        <div class="card-buttons">
+          <button class="btn-remove" data-id="${book.id}">Remove</button>
+        </div>
         `;
 
     grid.appendChild(card);
+  });
+
+  document.querySelectorAll(".btn-remove").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+
+      const index = myLibrary.findIndex((book) => book.id === id);
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
   });
 }
 
