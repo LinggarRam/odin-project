@@ -121,6 +121,7 @@ const DisplayController = (() => {
                 if (result.status === "win") {
                     updateStatus(`🏆 ${result.player.name} Wins!`);
                     statusText.style.color = result.player.marker === "X" ? "#e94560" : "#4ecca3";
+                    highlightWInner(result.player.marker);
                 } else if (result.status === "tie") {
                     updateStatus("🤝 It's a Tie");
                     statusText.style.color = "#f0b429";
@@ -144,7 +145,7 @@ const DisplayController = (() => {
         });
 
         btnCancel.addEventListener("click", () => {
-            dialog.closest();
+            dialog.close();
         });
 
         playerForm.addEventListener("submit", (e) => {
@@ -174,6 +175,21 @@ const DisplayController = (() => {
             updateStatus(`${p1Name}'s Turn (X)`);
             statusText.style.color = "#e94560";
         }); 
+    };
+
+    const highlightWInner = (marker) => {
+        const winningCombinations = [
+            [0,1,2],[3,4,5],[6,7,8],
+            [0,3,6],[1,4,7],[2,5,8],
+            [0,4,8],[2,4,6]
+        ];
+        const board = Gameboard.getBoard();
+
+        winningCombinations.forEach((combo) => {
+            if (combo.every((i) => board[i] === marker)) {
+                combo.forEach((i) => cells[i].classList.add("win"));
+            }
+        });
     };
 
     return { renderBoard, updateStatus, initBoard, initButtons };
