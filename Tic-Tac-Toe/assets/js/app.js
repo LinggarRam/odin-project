@@ -93,6 +93,7 @@ const GameController = (() => {
 const DisplayController = (() => {
     const cells = document.querySelectorAll(".cell");
     const statusText = document.getElementById("status-text");
+    let gameStarted = false;
 
     const renderBoard = () => {
         const board = Gameboard.getBoard();
@@ -111,6 +112,7 @@ const DisplayController = (() => {
     const initBoard = () => {
         cells.forEach((cell) => {
             cell.addEventListener("click", () => {
+                if (!gameStarted) return;
                 if (cell.classList.contains("taken") || GameController.getIsGameOver()) return;
 
                 const index = parseInt(cell.dataset.index);
@@ -135,10 +137,27 @@ const DisplayController = (() => {
 
     const initButtons = () => {
         const dialog = document.getElementById("player-dialog");
+        const btnHome = document.getElementById("btn-home");
         const btnStart = document.getElementById("btn-start");
         const btnRestart = document.getElementById("btn-restart");
         const btnCancel = document.getElementById("btn-dialog-cancel");
         const playerForm = document.getElementById("player-form");
+
+        btnHome.addEventListener("click", () => {
+            GameController.resetGame("Player 1", "Player 2");
+
+            document.getElementById("p1-name").textContent = "Player 1";
+            document.getElementById("p2-name").textContent = "Player 2";
+
+            document.getElementById("p1-input").value = "";
+            document.getElementById("p2-input").value = "";
+
+            renderBoard();
+            updateStatus("Press Start to Play ▶");
+            statusText.style.color = "#4ecca3";
+
+            gameStarted = false;
+        });
 
         btnStart.addEventListener("click", () => {
             dialog.showModal();
@@ -161,6 +180,7 @@ const DisplayController = (() => {
             renderBoard();
             updateStatus(`${p1Name}'s Turn (X)`);
             statusText.style.color = "#e94560";
+            gameStarted = true;
 
             dialog.close();
             playerForm.reset();
@@ -174,6 +194,7 @@ const DisplayController = (() => {
             renderBoard();
             updateStatus(`${p1Name}'s Turn (X)`);
             statusText.style.color = "#e94560";
+            gameStarted = true;
         }); 
     };
 

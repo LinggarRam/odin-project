@@ -182,6 +182,17 @@ body {
     transition: all 0.2s;
 }
 
+.btn-home {
+    background: #1a1a2e;
+    color: #f0b429;
+    border: 2px solid #f0b429;
+}
+
+.btn-home:hover {
+    background: #f0b429;
+    color: #0d0d1a;
+}
+
 .btn-start {
     background: linear-gradient(125deg, #e94560, #c0392b);
     color: white;
