@@ -111,6 +111,8 @@ const DisplayController = (() => {
     const initBoard = () => {
         cells.forEach((cell) => {
             cell.addEventListener("click", () => {
+                if (cell.classList.contains("taken") || GameController.getIsGameOver()) return;
+
                 const index = parseInt(cell.dataset.index);
                 const result = GameController.playTurn(index);
 

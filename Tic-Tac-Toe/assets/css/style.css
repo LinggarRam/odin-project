@@ -81,12 +81,23 @@ body {
 
 .cell:hover:not(.taken) {
     background: #252540;
-    border-color: #4ecca3;
+    border-color: #ddd;
     transform: scale(1.03);
 }
 
 .cell.taken {
     cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cell.win {
+    background: #252540;
+    animation: pulse 0.6s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
 }
 
 .cell.x {
