@@ -45,6 +45,59 @@ body {
     gap: 30px;
 }
 
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1a1a2e;
+    border: 2px solid #2a2a4a;
+    border-radius: 10px;
+    padding: 10px 20px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.x-badge {
+    border-color: #e94560;
+}
+
+.o-badge {
+    border-color: #4ecca3;
+}
+
+.player-marker {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.x-badge .player-marker {
+    color: #e94560;
+}
+
+.o-badge .player-marker {
+    color: #4ecca3;
+}
+
+.player-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.vs-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    letter-spacing: 3px;
+}
+
 .status-bar {
     background: #1a1a2e;
     border: 1px solid #2a2a4a;
@@ -112,6 +165,45 @@ body {
     text-shadow: 0 0 20px rgba(76, 204, 163, 0.5);
 }
 
+.game-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-start {
+    background: linear-gradient(125deg, #e94560, #c0392b);
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+}
+
+.btn-restart {
+    background: #1a1a2e;
+    color: #4ecca3;
+    border: 2px solid #4ecca3;
+}
+
+.btn-restart:hover {
+    background: #4ecca3;
+    color: #0d0d1a;
+}
+
 .app-footer {
     text-align: center;
     padding: 20px;
@@ -119,3 +211,92 @@ body {
     font-size: 1rem;
     border-top: 1px solid #1a1a2e;
 }
+
+dialog {
+    border: none;
+    border-radius: 16px;
+    padding: 35px;
+    width: 400px;
+    background: #1a1a2e;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+dialog h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #e94560), #4ecca3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-marker {
+    font-size: 1rem;
+    font-weight: 9000;
+}
+
+.x-color {
+    color: #e94560;
+}
+
+.o-color {
+    color: #4ecca3;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 2px solid #2a2a4a;
+    border-radius: 8px;
+    background: #0d0d1a;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #4ecca3;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.form-buttons .btn {
+    flex: 1;
+    font-size: 0.75rem;
+}
+

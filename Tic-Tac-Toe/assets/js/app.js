@@ -132,9 +132,54 @@ const DisplayController = (() => {
         });
     };
 
-    return { renderBoard, updateStatus, initBoard };
+    const initButtons = () => {
+        const dialog = document.getElementById("player-dialog");
+        const btnStart = document.getElementById("btn-start");
+        const btnRestart = document.getElementById("btn-restart");
+        const btnCancel = document.getElementById("btn-dialog-cancel");
+        const playerForm = document.getElementById("player-form");
+
+        btnStart.addEventListener("click", () => {
+            dialog.showModal();
+        });
+
+        btnCancel.addEventListener("click", () => {
+            dialog.closest();
+        });
+
+        playerForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const p1Name = document.getElementById("p1-input").value || "Player 1";
+            const p2Name = document.getElementById("p2-input").value || "Player 2";
+
+            document.getElementById("p1-name").textContent = p1Name;
+            document.getElementById("p2-name").textContent = p2Name;
+
+            GameController.resetGame(p1Name, p2Name);
+            renderBoard();
+            updateStatus(`${p1Name}'s Turn (X)`);
+            statusText.style.color = "#e94560";
+
+            dialog.close();
+            playerForm.reset();
+        });
+
+        btnRestart.addEventListener("click", () => {
+            const p1Name = document.getElementById("p1-name").textContent;
+            const p2Name = document.getElementById("p2-name").textContent;
+
+            GameController.resetGame(p1Name, p2Name);
+            renderBoard();
+            updateStatus(`${p1Name}'s Turn (X)`);
+            statusText.style.color = "#e94560";
+        }); 
+    };
+
+    return { renderBoard, updateStatus, initBoard, initButtons };
 })();
 
 GameController.resetGame("Player 1", "Player 2");
 DisplayController.initBoard();
+DisplayController.initButtons();
 DisplayController.updateStatus("Player 1's Turn (X)");

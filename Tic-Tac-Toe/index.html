@@ -14,6 +14,18 @@
         </header>
 
         <main class="app-main">
+            <div class="player-info">
+                <div class="player-badge x-badge">
+                    <span class="player-marker">X</span>
+                    <span class="player-name" id="p1-name">Player 1</span>
+                </div>
+                <span class="vs-text">VS</span>
+                <div class="player-badge o-badge">
+                    <span class="player-marker">O</span>
+                    <span class="player-name" id="p2-name">Player 2</span>
+                </div>
+            </div>
+
             <div class="status-bar" id="status-bar">
                 <span id="status-text">Player X's Turn</span>
             </div>
@@ -29,12 +41,42 @@
                 <div class="cell" data-index="7"></div>
                 <div class="cell" data-index="8"></div>
             </div>
+
+            <div class="game-buttons">
+                <button class="btn btn-start" id="btn-start">Start Game</button>
+                <button class="btn btn-restart" id="btn-restart">Restart</button>
+            </div>
         </main>
 
         <footer class="app-footer">
             <p>&copy; April 2026 <i>Linggar Ramadhan</i></p>
         </footer>
     </div>
+
+    <dialog id="player-dialog">
+        <form id="player-form">
+            <h2>Enter Player Names</h2>
+
+            <div class="form-group">
+                <label for="p1-input">
+                    <span class="label-marker x-color">x</span> Player 1 Name
+                </label>
+                <input type="text" id="p1-input" placeholder="Player 1" maxlength="15" required />
+            </div>
+
+            <div class="form-group">
+                <label for="p2-input">
+                    <span class="label-marker o-color">o</span> Player 2 Name
+                </label>
+                <input type="text" id="p2-input" placeholder="Player 2" maxlength="15" required />
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-start">Let's Play!</button>
+                <button type="button" class="btn btn-restart" id="btn-dialog-cancel">Cancel</button>
+            </div>
+        </form>
+    </dialog>
 
     <!-- JAVASCRIPT -->
     <script src="assets/js/app.js"></script>
