@@ -11,6 +11,22 @@ const loadPage = (pageLoader) => {
     content.appendChild(pageLoader());
 };
 
+// Function to switch to menu tab
+export const switchToMenu = () => {
+    // Update tab buttons
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    tabButtons.forEach((btn) => {
+        if (btn.dataset.tab === "menu") {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+    
+    // Load menu page
+    loadPage(createMenuPage);
+};
+
 // Load home page by default
 document.addEventListener("DOMContentLoaded", () => {
     loadPage(createHomePage);

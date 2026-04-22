@@ -1,3 +1,5 @@
+import { switchToMenu } from "./index.js";
+
 const createHomePage = () => {
     const container = document.createElement("div");
     container.classList.add("home-page");
@@ -15,6 +17,12 @@ const createHomePage = () => {
             <button class="hero-btn">Jelajahi Menu Kita</button>
         </div>
     `;
+
+    // Add event listener to hero button
+    const heroBtn = hero.querySelector(".hero-btn");
+    heroBtn.addEventListener("click", () => {
+        switchToMenu();
+    });
 
     const features = document.createElement("section");
     features.classList.add("features");
