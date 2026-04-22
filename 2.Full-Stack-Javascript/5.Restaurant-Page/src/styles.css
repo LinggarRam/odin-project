@@ -198,6 +198,78 @@ body {
     font-size: 0.98rem;
 }
 
+.menu-page {
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.menu-header {
+    margin-bottom: 60px;
+}
+
+.menu-category {
+    margin-bottom: 70px;
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.menu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 25px;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.menu-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+.menu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.menu-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.menu-item-price {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
 .footer {
     background: var(--bg-secondary);
     border-color: 1px solid var(--border);
@@ -229,4 +301,77 @@ body {
     height: 2px;
     background: var(--accent-gold);
     margin: 15px auto 40px;
+}
+
+/* Menu Page Styles */
+.menu-page {
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+.menu-header {
+    padding: 80px 60px 40px;
+    background: var(--bg-secondary);
+}
+
+.menu-category {
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 25px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.menu-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+.menu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.menu-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.menu-item-price {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }

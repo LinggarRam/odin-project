@@ -1,5 +1,6 @@
 import "./styles.css";
 import createHomePage from "./home.js";
+import createMenuPage from "./menu.js";
 
 // Initialize the page
 const content = document.getElementById("content");
@@ -28,8 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (tab === "home") {
                 loadPage(createHomePage);
             } else if (tab === "menu") {
-                // Placeholder for menu page
-                content.innerHTML = "<div style='padding: 60px; text-align: center;'><h2 class='section-title'>Menu</h2><p class='section-subtitle'>Coming soon...</p></div>";
+                loadPage(createMenuPage);
             } else if (tab === "about") {
                 // Placeholder for about page
                 content.innerHTML = "<div style='padding: 60px; text-align: center;'><h2 class='section-title'>About</h2><p class='section-subtitle'>Coming soon...</p></div>";
