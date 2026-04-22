@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0d0d0d;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #222222;
+    --accent-gold: #c9a84c;
+    --accent-light: #e8c97a;
+    --text-primary: #f0ead6;
+    --text-secondary: #a09070;
+    --border: #2a2a2a;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+}
+
+.navbar-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    padding: 10px 28px;
+    border-radius: 4px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.tab-btn.active {
+    color: var(--bg-primary);
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+#content {
+    flex: 1;
+    min-height: calc(100vh - 140px);
+}
+
+.footer {
+    background: var(--bg-secondary);
+    border-color: 1px solid var(--border);
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 15px auto 40px;
+}
