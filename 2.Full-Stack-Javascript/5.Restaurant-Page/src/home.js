@@ -9,7 +9,7 @@ const createHomePage = () => {
     hero.innerHTML = `
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-tagline">EST. 2019 - Ponorogo</p>
+            <p class="hero-tagline">EST.2026 - Ponorogo</p>
             <h1 class="hero-title">Tumikari<br/>Restaurant</h1>
             <p class="hero-desc">
                 Where the rich flavors of the Indonesian archipelago meet the elegance of modern fine dining.
