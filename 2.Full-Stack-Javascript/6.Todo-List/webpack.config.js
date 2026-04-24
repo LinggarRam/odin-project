@@ -19,7 +19,7 @@ module.exports = {
         ],
     },
 
-    plugin: [
+    plugins: [
         new HtmlWebpackPlugin({
             template: "./src/template.html",
         }),
@@ -28,7 +28,7 @@ module.exports = {
     devServer: {
         static: "./dist",
         port: 8080,
-        opne: true,
+        open: true,
     },
 
     mode: "development",
