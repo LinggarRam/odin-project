@@ -12,10 +12,10 @@ const Storage = {
         const data = localStorage.getItem(STORAGE_KEY);
 
         if(!data) {
-            const inbox = new project("Inbox");
+            const inbox = new Project("📥 Inbox");
             inbox.addTodo(
                 "Welcome to Todo App!",
-                "This is your firts todo. Click + Add Todo to create more.",
+                "This is your first todo. Click + Add Todo to create more.",
                 new Date().toISOString().split("T")[0],
                 "low",
                 "You can delete this Todo anytime."

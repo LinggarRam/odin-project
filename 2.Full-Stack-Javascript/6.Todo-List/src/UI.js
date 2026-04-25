@@ -1,5 +1,6 @@
-import { format, isPact, isToday, parseISO } from "date-fns";
+import { format, isPast, isToday, parseISO } from "date-fns";
 import Storage from "./Storage.js";
+import Project from "./Project.js";
 
 let projects = Storage.loadProjects();
 let activeProjectId = projects[0]?.id || null;
@@ -7,7 +8,7 @@ let activeProjectId = projects[0]?.id || null;
 const getActiveProject = () => 
     projects.find((p) => p.id === activeProjectId);
 
-const renderprojects = () => {
+const renderProjects = () => {
     const list = document.getElementById("project-list");
     list.innerHTML = "";
 
@@ -30,7 +31,7 @@ const renderprojects = () => {
             if (e.target.classList.contains("btn-delete-project")) return;
             
             activeProjectId = project.id;
-            renderprojects();
+            renderProjects();
             renderTodos();
         });
 
@@ -44,7 +45,7 @@ const renderprojects = () => {
                         activeProjectId = projects[0]?.id || null;
                     }
                     Storage.saveProjects(projects);
-                    renderprojects();
+                    renderProjects();
                     renderTodos();
                 }
             });
@@ -96,10 +97,10 @@ const renderTodos = () => {
             const date = parseISO(todo.dueDate);
             if (isToday(date)) {
                 dateDisplay = "📅 Today";
-                dateClass = " overdue";
+                dateClass = "todo-date";
             } else if (isPast(date) && !todo.completed) {
                 dateDisplay = `⚠️ ${format(date, "MMM d, yyyy")}`;
-                dateClass = " overdue"
+                dateClass = "todo-date overdue"
             } else {
                 dateDisplay = `📅 ${format(date, "MMM d, yyyy")}`;
             }
@@ -134,7 +135,7 @@ const renderTodos = () => {
         card.querySelector(".todo-checkbox").addEventListener("click", () => {
             todo.toggleComplete();
             Storage.saveProjects(projects);
-            renderprojects();
+            renderProjects();
             renderTodos();
         });
 
@@ -168,7 +169,7 @@ const openAddTodoDialog = () => {
 
 const openEditTodoDialog = (todo) => {
     editingTodoId = todo.id;
-    document.getElementById("dialog-title").textContent = "Edit Todo!";
+    document.getElementById("dialog-title").textContent = "Edit Todo";
     document.getElementById("btn-submit").textContent = "Save Changes";
     document.getElementById("todo-title").value = todo.title;
     document.getElementById("todo-desc").value = todo.description;
@@ -222,7 +223,7 @@ const initEvents = () => {
         Storage.saveProjects(projects);
         todoDialog.close();
         todoForm.reset();
-        renderprojects();
+        renderProjects();
         renderTodos();
     });
 
@@ -240,17 +241,14 @@ const initEvents = () => {
         const name = document.getElementById("project-name").value.trim();
         if (!name) return;
 
-        const { default: Project } = require("./Project.js");
-        import("./Project.js").then( ({ default: Project }) => {
-            const newProject = new Project(name);
-            projects.push(newProject);
-            activeProjectId = newProject.id;
-            Storage.saveProjects(projects);
-            projectDialog.close();
-            projectForm.reset();
-            renderprojects();
-            renderTodos();
-        });
+        const newProject = new Project(name);
+        projects.push(newProject);
+        activeProjectId = newProject.id;
+        Storage.saveProjects(projects);
+        projectDialog.close();
+        projectForm.reset();
+        renderProjects();
+        renderTodos();
     });
 };
 
