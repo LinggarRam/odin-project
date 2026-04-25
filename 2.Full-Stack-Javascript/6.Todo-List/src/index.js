@@ -1,3 +1,6 @@
 import "./style.css";
+import initUI from "./UI.js";
 
-console.log("Todo App")
+document.addEventListener("DOMContentLoaded", () => {
+    initUI();
+});
