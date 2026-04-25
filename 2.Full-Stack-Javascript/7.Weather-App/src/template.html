@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-brand">
+                <span class="brand-icon">⛅</span>
+                <span class="brand-name">Weather App</span>
+            </div>
+
+            <form class="search-form" id="search-form">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="search-input" placeholder="Search city or country..." autocomplete="off">
+                    <button type="submit" class="search-btn">Search</button>
+                </div>
+            </form>
+
+            <div class="unit-toggle">
+                <span class="unit-label">°C</span>
+                <label for="" class="toggle-switch">
+                    <input type="checkbox" id="unit-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="unit-label">°F</span>
+            </div>
+        </header>
+
+        <main class="main" id="main"></main>
+        
+        <footer class="footer"></footer>
+    </div>
+</body>
+</html>
