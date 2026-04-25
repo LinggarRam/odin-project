@@ -97,7 +97,7 @@ const renderTodos = () => {
             if (isToday(date)) {
                 dateDisplay = "📅 Today";
                 dateClass = " overdue";
-            } else if (isPact(date) && !todo.completed) {
+            } else if (isPast(date) && !todo.completed) {
                 dateDisplay = `⚠️ ${format(date, "MMM d, yyyy")}`;
                 dateClass = " overdue"
             } else {
@@ -154,3 +154,110 @@ const renderTodos = () => {
         todoList.appendChild(card);
     });
 };
+
+let editingTodoId = null;
+
+const openAddTodoDialog = () => {
+    editingTodoId = null;
+    document.getElementById("dialog-title").textContent = "Add New Todo";
+    document.getElementById("btn-submit").textContent = "Add Todo";
+    document.getElementById("todo-form").reset();
+    document.getElementById("todo-date").value = new Date().toISOString().split("T")[0];
+    document.getElementById("todo-dialog").showModal();
+};
+
+const openEditTodoDialog = (todo) => {
+    editingTodoId = todo.id;
+    document.getElementById("dialog-title").textContent = "Edit Todo!";
+    document.getElementById("btn-submit").textContent = "Save Changes";
+    document.getElementById("todo-title").value = todo.title;
+    document.getElementById("todo-desc").value = todo.description;
+    document.getElementById("todo-date").value = todo.dueDate;
+    document.getElementById("todo-priority").value = todo.priority;
+    document.getElementById("todo-notes").value = todo.notes;
+    document.getElementById("todo-dialog").showModal();
+};
+
+const initEvents = () => {
+    const todoDialog = document.getElementById("todo-dialog");
+    const projectDialog = document.getElementById("project-dialog");
+    const todoForm = document.getElementById("todo-form");
+    const projectForm =document.getElementById("project-form");
+
+    document.getElementById("btn-add-todo").addEventListener("click", () => {
+        if (!getActiveProject()) {
+            alert("Please create a project first!");
+            return;
+        }
+        openAddTodoDialog();
+    });
+
+    document.getElementById("btn-cancel").addEventListener("click", () => {
+        todoDialog.close();
+    });
+
+    todoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = document.getElementById("todo-title").value.trim();
+        const desc = document.getElementById("todo-desc").value.trim();
+        const date = document.getElementById("todo-date").value;
+        const priority = document.getElementById("todo-priority").value;
+        const notes = document.getElementById("todo-notes").value.trim();
+
+        const activeProject = getActiveProject();
+
+        if (editingTodoId) {
+            const todo = activeProject.getTodo(editingTodoId);
+            if (todo) {
+                todo.title = title;
+                todo.description = desc;
+                todo.dueDate = date;
+                todo.priority = priority;
+                todo.notes = notes;
+            }
+        } else {
+            activeProject.addTodo(title, desc, date, priority, notes);
+        }
+
+        Storage.saveProjects(projects);
+        todoDialog.close();
+        todoForm.reset();
+        renderprojects();
+        renderTodos();
+    });
+
+    document.getElementById("btn-add-project").addEventListener("click", () => {
+        document.getElementById("project-form").reset();
+        projectDialog.showModal();
+    });
+
+    document.getElementById("btn-cancel-project").addEventListener("click", () => {
+        projectDialog.close();
+    });
+
+    projectForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("project-name").value.trim();
+        if (!name) return;
+
+        const { default: Project } = require("./Project.js");
+        import("./Project.js").then( ({ default: Project }) => {
+            const newProject = new Project(name);
+            projects.push(newProject);
+            activeProjectId = newProject.id;
+            Storage.saveProjects(projects);
+            projectDialog.close();
+            projectForm.reset();
+            renderprojects();
+            renderTodos();
+        });
+    });
+};
+
+const initUI = () => {
+    initEvents();
+    renderProjects();
+    renderTodos();
+};
+
+export default initUI;
