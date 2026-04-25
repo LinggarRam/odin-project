@@ -1,20 +1,17 @@
 {
-  "name": "6.todo-list",
+  "name": "7.weather-app",
   "version": "1.0.0",
-  "description": "A modern Todo List application",
+  "description": "",
   "main": "index.js",
-  "homepage": "https://linggarram.github.io/odin-project",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode production",
-    "deploy": "npm run build && gh-pages -d dist"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^7.1.4",
-    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.7",
     "style-loader": "^4.0.0",
     "webpack": "^5.106.2",

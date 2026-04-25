@@ -8,19 +8,18 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
-        publicPath: process.env.NODE_ENV === 'production' ? '/odin-project/' : '/',
     },
-    
+
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["style-loader", " css-loader"],
             },
         ],
     },
 
-    plugins: [
+    plugin: [
         new HtmlWebpackPlugin({
             template: "./src/template.html",
         }),
@@ -31,6 +30,6 @@ module.exports = {
         port: 8080,
         open: true,
     },
-
+    
     mode: "development",
 };
