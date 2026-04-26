@@ -25,7 +25,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,9 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     padding: 4px 4px 4px 16px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
     gap: 8px;
     border-radius: 22px;
 }
@@ -108,7 +110,7 @@ body {
     outline: none;
     color: var(--text-primary);
     font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     min-width: 0;
 }
 
@@ -125,7 +127,7 @@ body {
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     transition: all 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
@@ -189,4 +191,209 @@ body {
 
 .toggle-switch input:checked + .toggle-slider::before {
     transform: translateX(20px);
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.loading,
+.error-state,
+.welcome-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    gap: 16px;
+}
+
+.loading.show,
+.error-state.show,
+.welcome-state.show {
+    display: flex;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(var(--border));
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spon 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.error-icon,
+.welcome-icon {
+    font-size: 3rem;
+}
+
+.error-state h3,
+.welcome-state h2 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.error-state p,
+.welcome-state p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.weather-content {
+    /*display: none;*/
+}
+
+.weather-content.show {
+    display: block;
+}
+
+.current-weather {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow), var(--shadow-gold);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.current-left {
+    padding: 40px;
+    background: linear-gradient(135deg, #12121a 0%, #1a1520 100%);
+    border-right: 1px solid var(--border);
+}
+
+.location-info {
+    margin-bottom: 30px;
+}
+
+.city-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.country-name {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.weather-date {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.temp-display {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.temp-value {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -3px;
+}
+
+.temp-unit {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-top: 10px;
+}
+
+.weather-condition {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.current-right {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.weather-icon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(201, 168, 76, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    transition: border-color 0.2s;
+}
+
+.detail-item:hover {
+    border-color: var(--border-hover);
+}
+
+.detail-icon {
+    font-size: 1rem;
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.forecast-section {
+}
+
+.forecast-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
 }

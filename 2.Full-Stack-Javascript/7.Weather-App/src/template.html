@@ -1,40 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-</head>
-<body>
-    <div class="app">
-        <header class="header">
-            <div class="header-brand">
-                <span class="brand-icon">⛅</span>
-                <span class="brand-name">Weather App</span>
-            </div>
-
-            <form class="search-form" id="search-form">
-                <div class="search-wrapper">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" id="search-input" placeholder="Search city or country..." autocomplete="off">
-                    <button type="submit" class="search-btn">Search</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="app">
+            <header class="header">
+                <div class="header-brand">
+                    <span class="brand-icon">⛅</span>
+                    <span class="brand-name">Weather App</span>
                 </div>
-            </form>
 
-            <div class="unit-toggle">
-                <span class="unit-label">°C</span>
-                <label for="" class="toggle-switch">
-                    <input type="checkbox" id="unit-toggle">
-                    <span class="toggle-slider"></span>
-                </label>
-                <span class="unit-label">°F</span>
-            </div>
-        </header>
+                <form class="search-form" id="search-form">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input
+                            type="text"
+                            class="search-input"
+                            id="search-input"
+                            placeholder="Search city or country..."
+                            autocomplete="off"
+                        />
+                        <button type="submit" class="search-btn">Search</button>
+                    </div>
+                </form>
 
-        <main class="main" id="main"></main>
-        
-        <footer class="footer"></footer>
-    </div>
-</body>
+                <div class="unit-toggle">
+                    <span class="unit-label">°C</span>
+                    <label for="" class="toggle-switch">
+                        <input type="checkbox" id="unit-toggle" />
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="unit-label">°F</span>
+                </div>
+            </header>
+
+            <main class="main" id="main">
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Fetching weather data...</p>
+                </div>
+
+                <div class="error-state" id="error-state">
+                    <span class="error-icon">⚠️</span>
+                    <h3>Location not found!</h3>
+                    <p>Please check the city name and try again</p>
+                </div>
+
+                <div class="welcome-state" id="welcome-state">
+                    <div class="welcome-icon">🌍</div>
+                    <h2>Check the weather</h2>
+                    <p>
+                        Search for any city to see the current weather and
+                        forecast
+                    </p>
+                </div>
+
+                <div class="weather-content" id="weather-content">
+                    <div class="current-weather">
+                        <div class="current-left">
+                            <div class="location-info">
+                                <h2 class="city-name" id="city-name">-</h2>
+                                <p class="country-name" id="country-name">-</p>
+                                <p class="weather-date" id="weather-date">-</p>
+                            </div>
+                            <div class="temp-display">
+                                <span class="temp-value" id="temp-value"
+                                    >-</span
+                                >
+                                <span class="temp-unit" id="temp-unit">°C</span>
+                            </div>
+                            <p
+                                class="weather-condition"
+                                id="weather-condition"
+                            ></p>
+                        </div>
+                        <div class="current-right">
+                            <div class="weather-icon" id="weather-icon">🌤️</div>
+                            <div class="weather-details">
+                                <div class="detail-item">
+                                    <span class="detail-icon">💧</span>
+                                    <span class="detail-label">Humadity</span>
+                                    <span class="detail-value" id="humadity"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">💨</span>
+                                    <span class="detail-label">Wind</span>
+                                    <span class="detail-value" id="wind-speed"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌡️</span>
+                                    <span class="detail-label">Feels Like</span>
+                                    <span class="detail-value" id="feels-like"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">👁️</span>
+                                    <span class="detail-label">Visibility</span>
+                                    <span class="detail-value" id="visibility"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌅</span>
+                                    <span class="detail-label">Sunrise</span>
+                                    <span class="detail-value" id="sunrise"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌇</span>
+                                    <span class="detail-label">Sunset</span>
+                                    <span class="detail-value" id="sanset"
+                                        >-</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forecast-section">
+                        <h3 class="forecast-title">7-Day Forecast</h3>
+                        <div class="forecast-grid" id="forecast-grid"></div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="footer"></footer>
+        </div>
+    </body>
 </html>
