@@ -149,6 +149,11 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.unit-label.active {
+    color: var(--gold);
 }
 
 .toggle-switch {
@@ -265,9 +270,8 @@ body {
 }
 
 .current-weather {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
+    display: flex;
+    flex-direction: column;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -277,13 +281,28 @@ body {
 }
 
 .current-left {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 48px;
+    row-gap: 24px;
     padding: 40px;
     background: linear-gradient(135deg, #12121a 0%, #1a1520 100%);
-    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.temp-condition {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
 }
 
 .location-info {
-    margin-bottom: 30px;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
 }
 
 .city-name {
@@ -335,15 +354,24 @@ body {
 }
 
 .current-right {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 28px 40px;
+    background: rgba(201, 168, 76, 0.02);
 }
 
 .weather-icon {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: center;
+    font-size: 13rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.25));
+    user-select: none;
+}
+
+.weather-details {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
 }
 
@@ -397,11 +425,13 @@ body {
 
 .forecast-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--bg-card);
     border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
     padding: 16px 10px;
     text-align: center;
-    flex-direction: column;
     gap: 8px;
     transition: all 0.2s;
     cursor: default;
@@ -486,12 +516,19 @@ body {
     .main {
         padding: 24px;
     }
-    .current-weather {
-        grid-template-columns: 1fr;
-    }
     .current-left {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
+        padding: 36px 28px;
+        column-gap: 32px;
+        row-gap: 16px;
+    }
+    .weather-icon {
+        font-size: 5.5rem;
+    }
+    .weather-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .current-right {
+        padding: 24px 28px;
     }
     .temp-value {
         font-size: 4rem;
@@ -513,9 +550,14 @@ body {
     }
     .current-left {
         padding: 24px;
+        column-gap: 20px;
+        row-gap: 16px;
+    }
+    .weather-icon {
+        font-size: 4.5rem;
     }
     .current-right {
-        padding: 24px;
+        padding: 20px 24px;
     }
     .city-name {
         font-size: 1.6rem;
@@ -524,7 +566,7 @@ body {
         font-size: 3.5rem;
     }
     .weather-details {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 8px;
     }
     .forecast-grid {
@@ -537,13 +579,19 @@ body {
     .unit-toggle {
         display: none;
     }
+    .weather-icon {
+        font-size: 3.5rem;
+    }
+    .current-left {
+        column-gap: 16px;
+    }
     .temp-value {
         font-size: 3rem;
     }
-    .forecast-grid {
+    .weather-details {
         grid-template-columns: repeat(2, 1fr);
     }
-    .weather-details {
-        grid-template-columns: 1fr;
+    .forecast-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

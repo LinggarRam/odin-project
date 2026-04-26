@@ -1,5 +1,8 @@
 import { celsiusToFahrenheit } from "./processData.js";
 
+const kmhToMph = (kmh) => Math.round(kmh * 0.621371);
+const kmToMi = (km) => (km * 0.621371).toFixed(1);
+
 let currentData = null;
 let isCelsius = true;
 
@@ -22,22 +25,30 @@ const showSection = (section) => {
 
 const renderWeather = (data, celsius = true) => {
   const temp = celsius ? data.temp : celsiusToFahrenheit(data.temp);
-  const feelsLike = celsius ? data.feelsLike : celsiusToFahrenheit(data.feelsLike);
+  const feelsLike = celsius
+    ? data.feelsLike
+    : celsiusToFahrenheit(data.feelsLike);
   const unit = celsius ? "C" : "F";
+  const windSpeed = celsius
+    ? `${data.windSpeed} km/h`
+    : `${kmhToMph(data.windSpeed)} mph`;
+  const visibility = celsius
+    ? `${data.visibility} km`
+    : `${kmToMi(data.visibility)} mi`;
 
   document.getElementById("city-name").textContent = data.city;
   document.getElementById("country-name").textContent = data.resolvedAddress;
   document.getElementById("weather-date").textContent = data.date;
 
   document.getElementById("temp-value").textContent = temp;
-  document.getElementById("temp-unit").textContent = unit;
+  document.getElementById("temp-unit").textContent = `°${unit}`;
   document.getElementById("weather-icon").textContent = data.icon;
   document.getElementById("weather-condition").textContent = data.condition;
 
-  document.getElementById("humidity").textContent = data.humodity;
-  document.getElementById("wind-speed").textContent = data.windSpeed;
-  document.getElementById("feels-like").textContent = `${feelsLike}${unit}`;
-  document.getElementById("visibility").textContent = data.visibility;
+  document.getElementById("humidity").textContent = data.humidity;
+  document.getElementById("wind-speed").textContent = windSpeed;
+  document.getElementById("feels-like").textContent = `${feelsLike}°${unit}`;
+  document.getElementById("visibility").textContent = visibility;
   document.getElementById("sunrise").textContent = data.sunrise;
   document.getElementById("sunset").textContent = data.sunset;
 
@@ -55,13 +66,17 @@ const renderWeather = (data, celsius = true) => {
     card.innerHTML = `
         <div class="forecast-day">${index === 0 ? "Today" : day.day}</div>
         <div class="forecast-icon">${day.icon}</div>
-        <div class="forecast-temp-max">${maxTemp}${unit}</div>
-        <div class="forecast-temp-min">${minTemp}${unit}</div>
+        <div class="forecast-temp-max">${maxTemp}°${unit}</div>
+        <div class="forecast-temp-min">${minTemp}°${unit}</div>
         <div class="forecast-cond">${day.condition}</div>
       `;
 
     forecastGrid.appendChild(card);
   });
+
+  const unitLabels = document.querySelectorAll(".unit-label");
+  unitLabels[0].classList.toggle("active", celsius);
+  unitLabels[1].classList.toggle("active", !celsius);
 
   showSection("weather");
 };
