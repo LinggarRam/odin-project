@@ -257,7 +257,7 @@ body {
 }
 
 .weather-content {
-    /*display: none;*/
+    display: none;
 }
 
 .weather-content.show {
@@ -378,9 +378,6 @@ body {
     font-size: 0.95rem;
     color: var(--gold-light);
     font-weight: 600;
-}
-
-.forecast-section {
 }
 
 .forecast-title {
