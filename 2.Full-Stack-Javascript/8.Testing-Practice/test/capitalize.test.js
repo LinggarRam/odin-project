@@ -1,4 +1,4 @@
-import capitalize from "../capitalize";
+import capitalize from "../src/capitalize";
 
 test("mengkapitalkan huruf pertama", () => {
   expect(capitalize("hello")).toBe("Hello");
