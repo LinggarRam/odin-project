@@ -80,3 +80,23 @@ console.log("\nTest 5 - Acak lainnya:");
 console.log("Input:  [105, 79, 100, 110]");
 console.log("Output:", mergeSort([105, 79, 100, 110]));
 console.log("Expect: [79, 100, 105, 110]");
+
+// VALIDASI OTOMATIS
+const tests = [
+  { input: [], expected: [] },
+  { input: [73], expected: [73] },
+  { input: [1, 2, 3, 4, 5], expected: [1, 2, 3, 4, 5] },
+  { input: [3, 2, 1, 13, 8, 5, 0, 1], expected: [0, 1, 1, 2, 3, 5, 8, 13] },
+  { input: [105, 79, 100, 110], expected: [79, 100, 105, 110] },
+];
+
+tests.forEach(({ input, expected }, i) => {
+  const result = mergeSort([...input]);
+  const pass = JSON.stringify(result) === JSON.stringify(expected);
+
+  console.log(`Test ${i + 1}: ${pass ? "✅ PASS" : "❌ FAIL"}`);
+  if (!pass) {
+    console.log(`  Expected: [${expected}]`);
+    console.log(`  Got:      [${result}]`);
+  }
+});
