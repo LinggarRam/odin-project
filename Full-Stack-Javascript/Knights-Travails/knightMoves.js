@@ -25,4 +25,47 @@ const getKnightMoves = (x, y) => {
   return moves;
 };
 
-export { getKnightMoves, isValidPosition };
+const knightMoves = (start, end) => {
+  const [startX, startY] = start;
+  const [endX, endY] = end;
+
+  if (!isValidPosition(startX, startY)) {
+    throw new Error(`Posisi start ${start} diluar batas`);
+  }
+  if (!isValidPosition(endX, endY)) {
+    throw new Error(`Posisi End ${end} diluar batas`);
+  }
+  if (startX === endX && startY === endY) {
+    return [start];
+  }
+
+  const visited = new set();
+  visited.add(`${startX},${startY}`);
+
+  const queue = [[start, [start]]];
+  while (queue.length > 0) {
+    const [currentPos, currentPath] = queue.shift();
+    const [currentX, currentY] = currentPos;
+
+    const possibleMoves = getKnightMoves(currentX, currentY);
+
+    for (const nextPos of possibleMoves) {
+      const [nextX, nextY] = nextPos;
+      const posKey = `${nextX},${nextY}`;
+
+      if (visited.has(posKey)) continue;
+
+      const newPath = [...currentPath, nextPos];
+      if (nextX === endX && nextY === endY) {
+        return newPath;
+      }
+
+      visited.add(posKey);
+      queue.push([nextPos, newPath]);
+    }
+  }
+
+  return null;
+};
+
+export { knightMoves, getKnightMoves, isValidPosition };
