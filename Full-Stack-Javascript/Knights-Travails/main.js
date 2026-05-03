@@ -1,7 +1,7 @@
-import { getKnightMoves } from "./knightMoves.js";
+import { printKnightMoves } from "./knightMoves.js";
 
-console.log("Moves dari [0,0]:", getKnightMoves(0, 0));
+console.log("\nTest 1: [3,3] -> [4,3]");
+printKnightMoves([3, 3], [4, 3]);
 
-console.log("Moves dari [4,4]:", getKnightMoves(4, 4));
-
-console.log("Jumlah moves dari [4,4]:", getKnightMoves(4, 4).length);
+console.log("\nTest 2: [0,0] -> [1,2]");
+printKnightMoves([0, 0], [1, 2]);

@@ -39,7 +39,7 @@ const knightMoves = (start, end) => {
     return [start];
   }
 
-  const visited = new set();
+  const visited = new Set();
   visited.add(`${startX},${startY}`);
 
   const queue = [[start, [start]]];
@@ -68,4 +68,29 @@ const knightMoves = (start, end) => {
   return null;
 };
 
-export { knightMoves, getKnightMoves, isValidPosition };
+const printKnightMoves = (start, end) => {
+  const path = knightMoves(start, end);
+
+  if (path === null) {
+    console.log("Path tidak ditemukan");
+    return;
+  }
+
+  const moves = path.length - 1;
+
+  if (moves === 0) {
+    console.log(`=> Anda sudah ada disini!`);
+  } else {
+    console.log(
+      `=> Anda berhasil masuk ${moves} ${moves === 1 ? "move" : "moves"}! berikut adalah jalan anda:`,
+    );
+  }
+
+  for (const pos of path) {
+    console.log(`  [${pos}]`);
+  }
+
+  return path;
+};
+
+export { knightMoves, printKnightMoves, getKnightMoves, isValidPosition };
