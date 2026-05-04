@@ -1,5 +1,5 @@
-const Gameboard = require("../Gameboard.js");
-const Ship = require("../Ship.js");
+const Gameboard = require("../Gameboard");
+const Ship = require("../Ship");
 
 describe("Gameboard", () => {
   let board;
