@@ -56,7 +56,7 @@ class Gameboard {
   }
 
   isAttacked(row, col) {
-    return this._attackedCells.has(`${row}, ${col}`);
+    return this._attackedCells.has(`${row},${col}`);
   }
 
   allSunk() {
