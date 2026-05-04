@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Battleship</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="app">
+            <header class="header">
+                <h1 class="title">⚓ BATTLESHIP</h1>
+                <div class="header-controls">
+                    <button class="btn btn-new-game" id="btn-new-game">
+                        New Game
+                    </button>
+                    <button class="btn btn-random-place" id="btn-random-place">
+                        Random Ships
+                    </button>
+                </div>
+            </header>
+
+            <div class="setup-phase" id="setup-phase">
+                <div class="setup-info">
+                    <h2>Place your ships</h2>
+                    <p id="setup-instruction">
+                        Click a cell to place your ships
+                    </p>
+                    <div class="ship-selector" id="ship-selector"></div>
+                    <div class="orientation-toggle">
+                        <button
+                            class="btn btn-orientation"
+                            id="btn-orientation"
+                        >
+                            Orientation:
+                            <span id="orientation-label">Horizontal</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-phase hidden" id="game-phase">
+                <div class="status-bar" id="status-bar">
+                    <span id="status-text"
+                        >Your turn — click enemy board to attack!</span
+                    >
+                </div>
+
+                <div class="boards-container">
+                    <!-- Board pemain -->
+                    <div class="board-wrapper">
+                        <h3 class="board-title player-title">Your Fleet</h3>
+                        <div class="board player-board" id="player-board"></div>
+                    </div>
+
+                    <!-- Board musuh -->
+                    <div class="board-wrapper">
+                        <h3 class="board-title enemy-title">Enemy Waters</h3>
+                        <div class="board enemy-board" id="enemy-board"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal hidden" id="modal">
+                <div class="modal-content">
+                    <div class="modal-icon" id="modal-icon">🏆</div>
+                    <h2 id="modal-title">Game Over</h2>
+                    <p id="modal-message">You win!</p>
+                    <button class="btn btn-play-again" id="btn-play-again">
+                        Play Again
+                    </button>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; Mei 2026 Linggar Ramadhan — Battleship Game</p>
+        </footer>
+    </body>
+</html>
