@@ -17,5 +17,5 @@ module.exports = {
     port: 8080,
     open: true,
   },
-  mode: "development",
+  mode: "production",
 };
