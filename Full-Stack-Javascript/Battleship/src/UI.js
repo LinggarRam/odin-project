@@ -10,7 +10,7 @@ const UI = (() => {
   const renderBoard = (
     gameboard,
     targetElement,
-    clickHendler = null,
+    clickHandler = null,
     showShips = false,
   ) => {
     targetElement.innerHTML = "";
@@ -29,17 +29,17 @@ const UI = (() => {
           cell.classList.add("attacked");
           if (cellData !== null) {
             cell.classList.add("hit");
-            cell.textContent = "";
+            cell.textContent = "💥";
             if (cellData.ship.isSunk()) cell.classList.add("sunk");
           } else {
             cell.classList.add("miss");
-            cell.textContent = "";
+            cell.textContent = "🌊";
           }
         } else if (showShips && cellData !== null) {
           cell.classList.add("ship");
         }
 
-        if (clickHendler && !isAttacked) {
+        if (clickHandler && !isAttacked) {
           cell.addEventListener("click", () => clickHandler(row, col));
         }
 
@@ -61,7 +61,7 @@ const UI = (() => {
         const cell = document.createElement("div");
         cell.classList.add("cell");
         cell.dataset.row = row;
-        cell.dataser.col = col;
+        cell.dataset.col = col;
 
         const cellData = gameboard.grid[row][col];
         if (cellData !== null) cell.classList.add("ship");
@@ -109,7 +109,7 @@ const UI = (() => {
     boardElement,
   ) => {
     boardElement.querySelectorAll(".cell").forEach((c) => {
-      c.classList.add("preview", "preview-invalid");
+      c.classList.remove("preview", "preview-invalid");
     });
 
     let valid = true;
@@ -145,7 +145,7 @@ const UI = (() => {
     if (color) el.style.color = color;
   };
 
-  const showModal = (title, message, icon = "") => {
+  const showModal = (title, message, icon = "🏆") => {
     document.getElementById("modal-icon").textContent = icon;
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-message").textContent = message;

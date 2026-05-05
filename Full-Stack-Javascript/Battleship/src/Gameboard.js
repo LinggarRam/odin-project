@@ -38,7 +38,7 @@ class Gameboard {
     const key = `${row},${col}`;
 
     if (this._attackedCells.has(key)) {
-      throw new Error(`coodinate [${row},${col}] already attacked`);
+      throw new Error(`coordinate [${row},${col}] already attacked`);
     }
 
     this._attackedCells.add(key);
