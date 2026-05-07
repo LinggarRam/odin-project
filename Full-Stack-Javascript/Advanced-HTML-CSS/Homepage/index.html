@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homepage</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!-- NAVBAR -->
+        <header class="navbar" id="navbar">
+            <div class="navbar-inner container">
+                <a href="#hero" class="navbar-logo">LR.</a>
+
+                <nav class="navbar-links" id="navbar-links">
+                    <a href="#projects" class="nav-link">Project</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#contact" class="btn btn-primary nav-cta">Hire Me</a>
+                </nav>
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- HERO -->
+            <section class="hero" id="hero">
+                <div class="hero-inner container">
+                    <div class="hero-text">
+                        <p class="hero-greeting">Hi, I'm</p>
+                        <h1 class="hero-name">Linggar<br />Ramadhan</h1>
+                        <p class="hero-role">Junior Developer</p>
+                        <p class="hero-desc">I build clean, responsive, and accessible web experiences. Currently learning full-stack JavaScript at The Odin Project.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                        </div>
+                        <div class="hero-socials">
+                            <a href="https://github.com/LinggarRam" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                                <img src="assets/icons/github.svg" alt="GitHub"/>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                                <img src="assets/icons/linkedin.svg" alt="LinkedIn"/>
+                            </a>
+                            <a href="https://x.com/LinggarRamadh12" target="_blank" rel="noopener" class="social-link" aria-label="Twitter">
+                                <img src="assets/icons/twitter.svg" alt="Twitter"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <div class="hero-image-wrapper">
+                            <img src="assets/images/profile.jpeg" alt="Linggar Ramadhan"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects" id="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">My Projects</h2>
+                        <p class="section-sub">Things I've built along the way</p>
+                    </div>
+
+                    <div class="projects-grid">
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/weather-app.png" alt="Weather App"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">Live Demo</a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Full-Stack-Javascript/Javascript/Weather-App" target="_blank" class="btn btn-sm btn-outline-white">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Weather App</h3>
+                                <p>Real-time weather with Visual Crossing API, dark gold theme, fully responsive.</p>
+                                <div class="project-tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Webpack</span>
+                                    <span class="tag">API</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/todo-list.png" alt="Todo List"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">Live Demo</a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Full-Stack-Javascript/Javascript/Todo-List" target="_blank" class="btn btn-sm btn-outline-white">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Todo List App</h3>
+                                <p>
+                                    Project management app with multiple projects, priorities, and localStorage persistence.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">OOP</span>
+                                    <span class="tag">Webpack</span>
+                                    <span class="tag">date-fns</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/battleship.png" alt="Battleship"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">
+                                        Live Demo
+                                    </a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Full-Stack-Javascript/Javascript/Battleship" target="_blank" class="btn btn-sm btn-outline-white">
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Battleship Game</h3>
+                                <p>
+                                    Classic battleship game built with TDD using Jest, featuring AI computer opponent.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">TDD</span>
+                                    <span class="tag">Jest</span>
+                                    <span class="tag">OOP</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/admin-dashboard.png" alt="Admin Dashboard"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">Live Demo</a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Full-Stack-Javascript/Intermediate-HTML-CSS/Admin-Dashboard" target="_blank" class="btn btn-sm btn-outline-white">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Admin Dashboard</h3>
+                                <p>
+                                    Responsive admin dashboard built with CSS Grid featuring projects, announcements, and trending.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">CSS Grid</span>
+                                    <span class="tag">Flexbox</span>
+                                    <span class="tag">SVG Icons</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/restaurant-page.png" alt="Restaurant Page"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">Live Demo</a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Full-Stack-Javascript/Javascript/Restaurant-Page" target="_blank" class="btn btn-sm btn-outline-white">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Restaurant Page</h3>
+                                <p>
+                                    Dynamic restaurant website with tab switching using ES6 modules and Webpack.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">ES6 Modules</span>
+                                    <span class="tag">Webpack</span>
+                                    <span class="tag">DOM</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-img">
+                                <img src="assets/images/calculator.png" alt="Calculator"/>
+                                <div class="project-overlay">
+                                    <a href="#" target="_blank" class="btn btn-sm">Live Demo</a>
+                                    <a href="https://github.com/LinggarRam/odin-project/tree/main/Fundamental/Calculator" target="_blank" class="btn btn-sm btn-outline-white">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Calculator</h3>
+                                <p>
+                                    Fully functional calculator with keyboard support and edge case handling.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">CSS Grid</span>
+                                    <span class="tag">Events</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" id="about">
+                <div class="container">
+                    <div class="about-inner">
+                        <div class="about-image">
+                            <img src="assets/images/profile.jpeg" alt="Linggar Ramadhan"/>
+                        </div>
+
+                        <div class="about-content">
+                            <h2 class="section-title">About Me</h2>
+
+                            <p>I'm Linggar Ramadhan, a self-taught junior developer from Ponorogo, East Java. I've been learning web development through <strong>The Odin Project</strong> — one of the most rigorous free coding curricula available.</p>
+
+                            <p>I love building things that are both functional and beautiful. My focus is on writing clean, maintainable JavaScript with modern tools like Webpack and ES6 modules.</p>
+
+                            <div class="skills-grid">
+                                <div class="skill-group">
+                                    <h4>Frontend</h4>
+                                    <ul>
+                                        <li>HTML5 & CSS3</li>
+                                        <li>JavaScript (ES6+)</li>
+                                        <li>Responsive Design</li>
+                                        <li>CSS Grid & Flexbox</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <h4>Tools & Concepts</h4>
+                                    <ul>
+                                        <li>Webpack & npm</li>
+                                        <li>Git & GitHub</li>
+                                        <li>TDD with Jest</li>
+                                        <li>OOP & Design Patterns</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact" id="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Get In Touch</h2>
+                        <p class="section-sub">
+                            Have a project in mind? Let's talk!
+                        </p>
+                    </div>
+
+                    <div class="contact-inner">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <img src="assets/icons/email.svg" alt="" aria-hidden="true"/>
+                                <div>
+                                    <p class="contact-label">Email</p>
+                                    <a href="mailto:moh.linggar@gmail.com">moh.linggar@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <img src="assets/icons/phone-in-talk.svg" alt="" aria-hidden="true"/>
+                                <div>
+                                    <p class="contact-label">Phone</p>
+                                    <a href="tel:+6281234567890">+62 812-3456-7890</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <img src="assets/icons/github.svg" alt="" aria-hidden="true"/>
+                                <div>
+                                    <p class="contact-label">GitHub</p>
+                                    <a href="https://github.com/LinggarRam" target="_blank">github.com/LinggarRam</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="contact-form" id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required/>
+                                <span class="error-msg" id="name-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="moh.linggar@gmail.com" required/>
+                                <span class="error-msg" id="email-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                                <span class="error-msg" id="message-error"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                            <p class="form-success hidden" id="form-success">✅ Message sent! I'll get back to you soon.</p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <p class="footer-name">Linggar Ramadhan</p>
+                    <p class="footer-copy">&copy; Mei 2026 Linggar Ramadhan</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/LinggarRam" target="_blank" aria-label="GitHub">
+                            <img src="assets/icons/github.svg" alt="GitHub" />
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <img src="assets/icons/linkedin.svg" alt="LinkedIn"/>
+                        </a>
+                        <a href="https://x.com/LinggarRamadh12" target="_blank" aria-label="Twitter">
+                            <img src="assets/icons/twitter.svg" alt="Twitter" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
