@@ -2,6 +2,7 @@ import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import CVPreview from "./components/CVPreview";
 import "./styles/App.css";
 
 function App() {
@@ -109,7 +110,13 @@ function App() {
             onRemove={handleRemoveExperience}
           />
         </div>
-        <div className="preview-column"></div>
+        <div className="preview-column">
+          <CVPreview
+            personalInfo={personalInfo}
+            education={education}
+            experience={experience}
+          />
+        </div>
       </div>
 
       <footer className="app-footer">

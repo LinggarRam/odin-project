@@ -3,7 +3,7 @@ function Education({ data, onChange, onAdd, onRemove }) {
     <section className="form-section">
       <h2 className="section-title">
         <span className="section-icon">🎓</span>
-        Education✉📞📍
+        Education
       </h2>
 
       {data.map((edu, index) => (
