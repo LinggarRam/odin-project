@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
+import Education from "./components/Education";
 import "./styles/App.css";
 
 function App() {
@@ -11,8 +12,42 @@ function App() {
     summary: "",
   });
 
+  const [education, setEducation] = useState([
+    {
+      id: crypto.randomUUID(),
+      school: "",
+      degree: "",
+      fieldOfStudy: "",
+      startDate: "",
+      endDate: "",
+    },
+  ]);
+
   const handlePersonalChange = (field, value) => {
     setPersonalInfo((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleEducationChange = (id, field, value) => {
+    setEducation((prev) =>
+      prev.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu)),
+    );
+  };
+
+  const handleAddEducation = () => {
+    setEducation((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        school: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+  };
+
+  const handleRemoveEducation = (id) => {
+    setEducation((prev) => prev.filter((edu) => edu.id !== id));
   };
 
   return (
@@ -25,6 +60,12 @@ function App() {
       <div className="app-body">
         <div className="form-column">
           <PersonalInfo data={personalInfo} onChange={handlePersonalChange} />
+          <Education
+            data={education}
+            onChange={handleEducationChange}
+            onAdd={handleAddEducation}
+            onRemove={handleRemoveEducation}
+          />
         </div>
         <div className="preview-column"></div>
       </div>
