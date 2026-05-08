@@ -1,122 +1,128 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import PersonalInfo from "./components/PersonalInfo";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import CVPreview from "./components/CVPreview";
+import "./styles/App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [personalInfo, setPersonalInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    summary: "",
+  });
+
+  const [education, setEducation] = useState({
+    id: crypto.randomUUID(),
+    school: "",
+    degree: "",
+    fieldOfStudy: "",
+    startdate: "",
+    endDate: "",
+  });
+
+  const [experience, setExperience] = useState({
+    id: crypto.randomUUID(),
+    company: "",
+    position: "",
+    responsibilities: "",
+    startDate: "",
+    endDate: "",
+  });
+
+  const handlePersonalChange = (field, value) => {
+    setPersonalInfo((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleEducationChange = (id, field, value) => {
+    setEducation((prev) =>
+      prev.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu)),
+    );
+  };
+
+  const handleAddEducation = () => {
+    setEducation((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        school: "",
+        degree: "",
+        fieldOfStudy: "",
+        startdate: "",
+        endDate: "",
+      },
+    ]);
+  };
+
+  const handleRemoveEducation = (id) => {
+    setEducation((prev) => prev.filter((edu) => edu.id !== id));
+  };
+
+  const handleExperienceChange = (id, field, value) => {
+    setExperience((prev) =>
+      prev.map((exp) => (exp.id === id ? { ...exp, [field]: value } : exp)),
+    );
+  };
+
+  const handleAddExperience = () => {
+    setExperience((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        company: "",
+        position: "",
+        responsibilities: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+  };
+
+  const handleRemoveExperince = (id) => {
+    setExperience((prev) => prev.filter((exp) => exp.id !== id));
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
+      <header className="app-header">
+        <h1>CV Builder</h1>
+        <p>Fill in your information to generate your CV</p>
+      </header>
 
-      <div className="ticks"></div>
+      <div className="app-body">
+        <div className="form-column">
+          <PersonalInfo data={personalInfo} onChange={handlePersonalChange} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <Education
+            data={education}
+            onChange={handleEducationChange}
+            onAdd={handleAddEducation}
+            onRemove={handleRemoveEducation}
+          />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <Experience
+            data={experience}
+            onChange={handleExperienceChange}
+            onAdd={handleAddExperience}
+            onRemove={handleRemoveExperince}
+          />
+        </div>
+        <div className="preview-column">
+          <CVPreview
+            personalInfo={personalInfo}
+            education={education}
+            experience={experience}
+          />
+        </div>
+      </div>
+
+      <footer className="app-footer">
+        <p>&copy; Mei 2026 - LINGGAR RAMADHAN</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
