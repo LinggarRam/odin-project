@@ -1,3 +1,5 @@
+import "../styles/Education.css";
+
 function Education({ data, onChange, onAdd, onRemove }) {
   return (
     <section className="form-section">
