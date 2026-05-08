@@ -44,7 +44,10 @@ function Experience({ data, onChange, onAdd, onRemove }) {
             <div className="form-group">
               <label>Start Date</label>
               <input
-                type="month"
+                type="number"
+                min="1900"
+                max="2100"
+                placeholder="e.g. 2020"
                 value={exp.startDate}
                 onChange={(e) => onChange(exp.id, "startDate", e.target.value)}
               />
@@ -53,7 +56,10 @@ function Experience({ data, onChange, onAdd, onRemove }) {
             <div className="form-group">
               <label>End Date</label>
               <input
-                type="month"
+                type="number"
+                min="1900"
+                max="2100"
+                placeholder="e.g. 2024"
                 value={exp.endDate}
                 onChange={(e) => onChange(exp.id, "endDate", e.target.value)}
               />

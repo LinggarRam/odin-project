@@ -1,7 +1,11 @@
 const formatDate = (dateStr) => {
-  if (!dateStr) return "present";
+  if (!dateStr) return "Present";
+  // Jika hanya tahun (contoh: "2007")
+  if (/^\d{4}$/.test(dateStr.trim())) return dateStr.trim();
+  // Jika format bulan-tahun (contoh: "2007-03")
   const [year, month] = dateStr.split("-");
-  const date = new Date(year, parseInt(month) - 1);
+  const date = new Date(parseInt(year), parseInt(month) - 1);
+  if (isNaN(date.getTime())) return dateStr;
   return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 };
 
@@ -26,10 +30,10 @@ function CVPreview({ personalInfo, education, experience }) {
   }
 
   return (
-    <div className="cv-preview">
+    <div className="cv-preview" style={{ textTransform: "uppercase" }}>
       {hasPersonalInfo && (
         <header className="cv-header">
-          {hasPersonalInfo.name && (
+          {personalInfo.name && (
             <h1 className="cv-name">{personalInfo.name}</h1>
           )}
           <div className="cv-contact">
@@ -77,30 +81,31 @@ function CVPreview({ personalInfo, education, experience }) {
       {hasExperience && (
         <section className="cv-section">
           <h2 className="cv-section-title">Work Experience</h2>
-          {experience.map((exp) => {
-            exp.company && (
-              <div key={exp.id} className="cv-entry">
-                <div className="cv-entry-header">
-                  <div>
-                    <h3 className="cv-entry-title">{exp.company}</h3>
-                    {exp.position && (
-                      <p className="cv-entry-subtitle">{exp.position}</p>
+          {experience.map(
+            (exp) =>
+              exp.company && (
+                <div key={exp.id} className="cv-entry">
+                  <div className="cv-entry-header">
+                    <div>
+                      <h3 className="cv-entry-title">{exp.company}</h3>
+                      {exp.position && (
+                        <p className="cv-entry-subtitle">{exp.position}</p>
+                      )}
+                    </div>
+
+                    {(exp.startDate || exp.endDate) && (
+                      <span className="cv-entry-date">
+                        {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
+                      </span>
                     )}
                   </div>
 
-                  {(exp.startDate || exp.endDate) && (
-                    <span className="cv-entry-date">
-                      {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
-                    </span>
+                  {exp.responsibilities && (
+                    <p className="cv-entry-desc">{exp.responsibilities}</p>
                   )}
                 </div>
-
-                {exp.responsibilities && (
-                  <p className="cv-entry-desc">{exp.responsibilities}</p>
-                )}
-              </div>
-            );
-          })}
+              ),
+          )}
         </section>
       )}
     </div>
