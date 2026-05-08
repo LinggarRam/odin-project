@@ -1,8 +1,5 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
-import Education from "./components/Education";
-import Experience from "./components/Experience";
-import CVPreview from "./components/CVPreview";
 import "./styles/App.css";
 
 function App() {
@@ -14,74 +11,8 @@ function App() {
     summary: "",
   });
 
-  const [education, setEducation] = useState({
-    id: crypto.randomUUID(),
-    school: "",
-    degree: "",
-    fieldOfStudy: "",
-    startdate: "",
-    endDate: "",
-  });
-
-  const [experience, setExperience] = useState({
-    id: crypto.randomUUID(),
-    company: "",
-    position: "",
-    responsibilities: "",
-    startDate: "",
-    endDate: "",
-  });
-
   const handlePersonalChange = (field, value) => {
     setPersonalInfo((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleEducationChange = (id, field, value) => {
-    setEducation((prev) =>
-      prev.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu)),
-    );
-  };
-
-  const handleAddEducation = () => {
-    setEducation((prev) => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        school: "",
-        degree: "",
-        fieldOfStudy: "",
-        startdate: "",
-        endDate: "",
-      },
-    ]);
-  };
-
-  const handleRemoveEducation = (id) => {
-    setEducation((prev) => prev.filter((edu) => edu.id !== id));
-  };
-
-  const handleExperienceChange = (id, field, value) => {
-    setExperience((prev) =>
-      prev.map((exp) => (exp.id === id ? { ...exp, [field]: value } : exp)),
-    );
-  };
-
-  const handleAddExperience = () => {
-    setExperience((prev) => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        company: "",
-        position: "",
-        responsibilities: "",
-        startDate: "",
-        endDate: "",
-      },
-    ]);
-  };
-
-  const handleRemoveExperince = (id) => {
-    setExperience((prev) => prev.filter((exp) => exp.id !== id));
   };
 
   return (
@@ -94,28 +25,8 @@ function App() {
       <div className="app-body">
         <div className="form-column">
           <PersonalInfo data={personalInfo} onChange={handlePersonalChange} />
-
-          <Education
-            data={education}
-            onChange={handleEducationChange}
-            onAdd={handleAddEducation}
-            onRemove={handleRemoveEducation}
-          />
-
-          <Experience
-            data={experience}
-            onChange={handleExperienceChange}
-            onAdd={handleAddExperience}
-            onRemove={handleRemoveExperince}
-          />
         </div>
-        <div className="preview-column">
-          <CVPreview
-            personalInfo={personalInfo}
-            education={education}
-            experience={experience}
-          />
-        </div>
+        <div className="preview-column"></div>
       </div>
 
       <footer className="app-footer">

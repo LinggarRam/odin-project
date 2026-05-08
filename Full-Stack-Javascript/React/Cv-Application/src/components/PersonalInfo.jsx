@@ -1,3 +1,5 @@
+import "../styles/PersonalInfo.css";
+
 function PersonalInfo({ data, onChange }) {
   return (
     <section className="form-section">

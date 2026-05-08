@@ -1,0 +1,82 @@
+:root {
+    --color-bg: #f4f6f9;
+    --color-white: #ffffff;
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-danger-dark: #dc2626;
+    --color-success: #10b981;
+    --color-text: #1e293b;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-border-focus: #2563eb;
+    --font: "Segoe UI", system-ui, sans-serif;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    background: var(--color-primary);
+    color: white;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.app-header p {
+    font-size: 0.875rem;
+    opacity: 0.85;
+}
+
+.app-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 16px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.preview-column {
+    margin-top: 16px;
+}
+
+.app-footer {
+    background: var(--color-text);
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-size: 0.8rem;
+}
