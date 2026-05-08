@@ -1,10 +1,8 @@
-import "../styles/PersonalInfo.css";
-
 function PersonalInfo({ data, onChange }) {
   return (
     <section className="form-section">
       <h2 className="section-title">
-        <span className="section-icon"></span>
+        <span className="section-icon">👤</span>
         Personal Information
       </h2>
 

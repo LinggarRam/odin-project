@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
 import "./styles/App.css";
 
 function App() {
@@ -18,6 +19,17 @@ function App() {
       school: "",
       degree: "",
       fieldOfStudy: "",
+      startDate: "",
+      endDate: "",
+    },
+  ]);
+
+  const [experience, setExperience] = useState([
+    {
+      id: crypto.randomUUID(),
+      company: "",
+      position: "",
+      responsibilities: "",
       startDate: "",
       endDate: "",
     },
@@ -50,10 +62,34 @@ function App() {
     setEducation((prev) => prev.filter((edu) => edu.id !== id));
   };
 
+  const handleExperienceChange = (id, field, value) => {
+    setExperience((prev) =>
+      prev.map((exp) => (exp.id === id ? { ...exp, [field]: value } : exp)),
+    );
+  };
+
+  const handleAddExperience = () => {
+    setExperience((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        company: "",
+        position: "",
+        responsibilities: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+  };
+
+  const handleRemoveExperience = (id) => {
+    setExperience((prev) => prev.filter((exp) => exp.id !== id));
+  };
+
   return (
     <div className="app">
       <header className="app-header">
-        <h1>CV Builder</h1>
+        <h1>📄 CV Builder</h1>
         <p>Fill in your information to generate your CV</p>
       </header>
 
@@ -65,6 +101,12 @@ function App() {
             onChange={handleEducationChange}
             onAdd={handleAddEducation}
             onRemove={handleRemoveEducation}
+          />
+          <Experience
+            data={experience}
+            onChange={handleExperienceChange}
+            onAdd={handleAddExperience}
+            onRemove={handleRemoveExperience}
           />
         </div>
         <div className="preview-column"></div>

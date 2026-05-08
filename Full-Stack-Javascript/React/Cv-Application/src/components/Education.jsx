@@ -1,11 +1,9 @@
-import "../styles/Education.css";
-
 function Education({ data, onChange, onAdd, onRemove }) {
   return (
     <section className="form-section">
       <h2 className="section-title">
-        <span className="section-icon"></span>
-        Education
+        <span className="section-icon">🎓</span>
+        Education✉📞📍
       </h2>
 
       {data.map((edu, index) => (
@@ -51,7 +49,7 @@ function Education({ data, onChange, onAdd, onRemove }) {
                 placeholder="e.g. Informatics Engineering"
                 value={edu.fieldOfStudy}
                 onChange={(e) =>
-                  onChange(edu.id, "fielOfStudy", e.target.value)
+                  onChange(edu.id, "fieldOfStudy", e.target.value)
                 }
               />
             </div>
