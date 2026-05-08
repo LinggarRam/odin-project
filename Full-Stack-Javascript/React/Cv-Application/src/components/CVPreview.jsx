@@ -32,7 +32,7 @@ function CVPreview({ personalInfo, education, experience }) {
           {hasPersonalInfo.name && (
             <h1 className="cv-name">{personalInfo.name}</h1>
           )}
-          <div className="cv-content">
+          <div className="cv-contact">
             {personalInfo.email && <span>✉ {personalInfo.email}</span>}
             {personalInfo.phone && <span>📞 {personalInfo.phone}</span>}
             {personalInfo.address && <span>📍 {personalInfo.address}</span>}
