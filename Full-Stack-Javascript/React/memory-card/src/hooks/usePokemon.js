@@ -35,9 +35,9 @@ const usePokemon = (count = 12) => {
         }));
 
         setCards(pokemonCards);
-      } catch (err) {
-        setError(err.message);
-        console.error("Error fetching pokemon", err);
+      } catch (error) {
+        setError(error.message);
+        console.error("Error fetching pokemon", error);
       } finally {
         setIsLoading(false);
       }
