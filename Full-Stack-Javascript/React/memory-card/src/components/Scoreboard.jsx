@@ -3,7 +3,7 @@ export default function Scoreboard({ currentScore, bestScore, total }) {
     <div className="scoreboard">
       <div className="scoreboard-left">
         <h1 className="game-title">
-          <span className="game-icon">🧠🏆💀🎉⚠️</span>
+          <span className="game-icon">🧠⚠️</span>
           Memory Card
         </h1>
         <p className="game-desc">

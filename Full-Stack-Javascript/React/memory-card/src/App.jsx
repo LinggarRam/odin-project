@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import usePokemon from "./hooks/usePokemon";
 import Scoreboard from "./components/Scoreboard";
+import Card from "./components/Card";
+import GameOver from "./components/GameOver";
 
 const suffleArray = (arr) => {
   const suffled = [...arr];
@@ -19,6 +21,8 @@ export default function App() {
   return (
     <div>
       <Scoreboard />
+      <Card />
+      <GameOver />
     </div>
   );
 }
