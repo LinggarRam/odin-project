@@ -1,3 +1,5 @@
+import "./styles/Scoreboard.css";
+
 export default function Scoreboard({ currentScore, bestScore, total }) {
   return (
     <div className="scoreboard">
@@ -23,7 +25,7 @@ export default function Scoreboard({ currentScore, bestScore, total }) {
         <div className="score-item progress-item">
           <span className="score-label">Progress</span>
           <span className="score-value">
-            {currentScore}/{total}
+            {currentScore} / {total}
           </span>
         </div>
       </div>
