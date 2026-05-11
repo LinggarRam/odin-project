@@ -13,22 +13,12 @@ const suffleArray = (arr) => {
 
 const CARD_COUNT = 12;
 
-function App() {
-  const { cards, isLoading, error } = usePokemon(12);
-
-  if (isLoading) return <p>Memuat kartu pokemon...</p>;
-  if (error) return <p>Error: {error}</p>;
+export default function App() {
+  const { cards, isLoading, error } = usePokemon(CARD_COUNT);
 
   return (
     <div>
-      <p>Memuat {cards.length} pokemon</p>
-      <ul>
-        {cards.map((card) => (
-          <li key={card.id}>{card.name}</li>
-        ))}
-      </ul>
+      <Scoreboard />
     </div>
   );
 }
-
-export default App;
