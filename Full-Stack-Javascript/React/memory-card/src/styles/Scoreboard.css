@@ -1,3 +1,74 @@
 .scoreboard {
+    background: rgba(26, 26, 38, 0.98);
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
+.game-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    display: flex;
+    gap: 8px;
+    color: var(--text);
+    align-items: center;
+}
+
+.game-icon {
+    font-size: 1.6rem;
+}
+
+.game-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.scoreboard-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.score-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.score-value {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text);
+}
+
+.score-value.current {
+    color: var(--blue);
+}
+
+.score-value.best {
+    color: var(--gold);
+}
+
+.score-divider {
+    color: var(--border);
+    font-size: 1.2rem;
+}
+
+.progress-item {
+    margin-left: auto;
 }
