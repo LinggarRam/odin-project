@@ -1,0 +1,135 @@
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 16px;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 2px solid var(--red);
+    padding: 32px 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 20px 60px rgba(255, 50, 50, 0.2);
+    animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-icon {
+    font-size: 3.5rem;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text);
+}
+
+.modal-message {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 260px;
+}
+
+.modal-scores {
+    display: flex;
+    gap: 24px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-sm);
+    justify-content: center;
+    border: 1px solid var(--border);
+    width: 100%;
+}
+
+.modal-score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.modal-score-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.modal-score-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text);
+}
+
+.win-score {
+    color: var(--gold);
+}
+
+.lose-score {
+    color: var(--red);
+}
+
+.new-record {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    animation: pulse 1s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.7;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-restart {
+    width: 100%;
+    padding: 14px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        transform var(--transition);
+    letter-spacing: 1px;
+}
+
+.btn-restart:hover {
+    background: var(--red-dark);
+    transform: translateY(-2px);
+}

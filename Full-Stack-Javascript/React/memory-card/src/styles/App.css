@@ -94,3 +94,55 @@ body {
     font-size: 0.8rem;
     color: var(--red);
 }
+
+.app-footer {
+    text-align: center;
+    padding: 14px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+@media (min-width: 600px) {
+  .scoreboard {
+    flex-direction: row; /* ← berdampingan di tablet */
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr); /* ← 3 kolom */
+    gap: 14px;
+    padding: 16px 24px;
+  }
+
+  .card-image-wrapper { width: 100px; height: 100px; }
+  .card-image { width: 90px; height: 90px; }
+  .pokemon-name { font-size: 0.85rem; }
+}
+
+@media (min-width: 1024px) {
+  .scoreboard { padding: 18px 40px; }
+
+  .cards-container {
+    grid-template-columns: repeat(4, 1fr); /* ← 4 kolom */
+    gap: 18px;
+    padding: 24px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .card-image-wrapper { width: 120px; height: 120px; }
+  .card-image { width: 110px; height: 110px; }
+  .card-inner { padding: 16px 12px 14px; }
+  .pokemon-name { font-size: 0.9rem; }
+}
+
+@media (min-width: 1440px) {
+  .cards-container {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1400px;
+  }
+}
