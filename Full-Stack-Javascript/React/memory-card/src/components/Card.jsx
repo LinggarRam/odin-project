@@ -1,3 +1,5 @@
+import "../styles/Card.css";
+
 export default function Card({ card, onClick }) {
   const displayName = card.name.charAt(0).toUpperCase() + card.name.slice(1);
 
