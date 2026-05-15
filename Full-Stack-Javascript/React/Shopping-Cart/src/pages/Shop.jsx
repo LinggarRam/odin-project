@@ -18,7 +18,7 @@ export default function Shop({ onAddToCart }) {
 
   const handleAddTocart = (product, qty) => {
     onAddToCart(product, qty);
-    setNotification(`✅🛍️${product.title.substring(0, 30)}... Added to cart!`);
+    setNotification(`✅ ${product.title.substring(0, 30)}... Added to cart!`);
     setTimeout(() => setNotification(""), 2500);
   };
 
