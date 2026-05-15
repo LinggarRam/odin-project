@@ -34,10 +34,13 @@ export default function ProductCard({ product, onAddToCart }) {
     <article className="product-card">
       <div className="product-image-wrapper">
         <img
-          src={product.imgae}
+          src={product.image}
           alt={product.title}
           className="product-image"
           loading="lazy"
+          onError={(e) => {
+            e.target.src = "https://via.placeholder.com/150?text=No+Image";
+          }}
         />
       </div>
 

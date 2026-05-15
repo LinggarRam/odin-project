@@ -119,18 +119,21 @@
 }
 
 .product-image-wrapper {
-    height: 180px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 20px;
     background: #f8fafc;
+    overflow: hidden;
 }
 
 .product-image {
-    max-height: 150px;
+    max-height: 180px;
     max-width: 100%;
+    width: auto;
     object-fit: contain;
+    display: block;
 }
 
 .product-info {
