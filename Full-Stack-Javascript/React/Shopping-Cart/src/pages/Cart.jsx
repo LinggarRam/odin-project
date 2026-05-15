@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import CardItem from "../components/CartItem";
+import CartItem from "../components/CartItem";
+import "../styles/Cart.css";
 
 export default function Cart({ cartItems, onUpdateQty, onRemove }) {
   const totalPrice = cartItems
@@ -19,19 +20,21 @@ export default function Cart({ cartItems, onUpdateQty, onRemove }) {
           Browse Products
         </Link>
       </div>
-    )
+    );
   }
   return (
     <div className="cart-page">
       <div className="cart-header">
         <h1>Shopping Cart</h1>
-        <p>{totalItems} item{ totalItems !== 1 ? "s" : ""}</p>
+        <p>
+          {totalItems} item{totalItems !== 1 ? "s" : ""}
+        </p>
       </div>
 
       <div className="cart-layout">
         <div className="cart-items">
-          {cartItems.map(item => (
-            <CardItem
+          {cartItems.map((item) => (
+            <CartItem
               key={item.id}
               item={item}
               onUpdateQty={onUpdateQty}
@@ -44,20 +47,23 @@ export default function Cart({ cartItems, onUpdateQty, onRemove }) {
           <h2>Order Summary</h2>
 
           <div className="summary-row">
-            <span>Subtotal ({ totalItems} items)</span>
-            <span>${ totalPrice}</span>
+            <span>Subtotal ({totalItems} items)</span>
+            <span>${totalPrice}</span>
           </div>
 
           <div className="summary-row">
             <span>Shipping</span>
-            <span className={parseFloat(totalPrice) >= 50 ? "free-shipping" : ""}>
+            <span
+              className={parseFloat(totalPrice) >= 50 ? "free-shipping" : ""}
+            >
               {parseFloat(totalPrice) >= 50 ? "FREE" : "$5.99"}
             </span>
           </div>
 
           {parseFloat(totalPrice) < 50 && (
             <p className="shipping-notice">
-              Add ${(50 - parseFloat(totalPrice)).toFixed(2)} more for free shipping!
+              Add ${(50 - parseFloat(totalPrice)).toFixed(2)} more for free
+              shipping!
             </p>
           )}
 
@@ -66,13 +72,14 @@ export default function Cart({ cartItems, onUpdateQty, onRemove }) {
           <div className="summary-row total">
             <span>Total</span>
             <span>
-              ${parseFloat(totalPrice) >= 50 ? totalPrice : (parseFloat(totalPrice) + 5.99).toFixed(2)}
+              $
+              {parseFloat(totalPrice) >= 50
+                ? totalPrice
+                : (parseFloat(totalPrice) + 5.99).toFixed(2)}
             </span>
           </div>
 
-          <button className="btn-checkout">
-            Proceed to checkout
-          </button>
+          <button className="btn-checkout">Proceed to checkout</button>
 
           <Link to="/shop" className="btn-continue">
             Continue Shipping
@@ -80,7 +87,7 @@ export default function Cart({ cartItems, onUpdateQty, onRemove }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 Cart.propTypes = {
@@ -91,7 +98,7 @@ Cart.propTypes = {
       price: PropTypes.number.isRequired,
       image: PropTypes.string.isRequired,
       quantity: PropTypes.number.isRequired,
-    })
+    }),
   ).isRequired,
   onUpdateQty: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
