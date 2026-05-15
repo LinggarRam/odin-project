@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/Home.css";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
             Shop the latest trends with unbeatable prices.
             Quality guaranteed on every purchase.
           </p>
-          <div className="gero-actions">
+          <div className="hero-actions">
             <Link to="/shop" className="btn btn-primary">
               Shop now
             </Link>
