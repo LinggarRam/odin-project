@@ -89,3 +89,67 @@ body {
 .btn-outline:hover {
     background: var(--primary-light);
 }
+
+@media (min-width: 600px) {
+    .navbar-container {
+        padding: 14px 24px;
+    }
+    .shop-page,
+    .cart-page,
+    .home {
+        padding: 24px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+    .hero-actions {
+        justify-content: flex-start;
+    }
+    .hero-desc {
+        margin: 12px 0;
+    }
+
+    .features {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .navbar-container {
+        padding: 16px 40px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cart-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .cart-items {
+        flex: 1;
+    }
+    .cart-summary {
+        width: 320px;
+        position: sticky;
+        top: 80px;
+    }
+
+    .hero-emoji {
+        font-size: 8rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
