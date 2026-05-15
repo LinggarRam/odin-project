@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../styles/Navbar.css";
 
 export default function Navbar({ totalItems }) {
   return (
@@ -30,7 +31,7 @@ export default function Navbar({ totalItems }) {
           <NavLink
             to="/cart"
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
+              isActive ? "nav-link active" : "nav-link cart-link"
             }
           >
             🛒 Cart
